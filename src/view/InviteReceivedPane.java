@@ -26,10 +26,10 @@ public class InviteReceivedPane extends JOptionPane {
      */
     public InviteReceivedPane(String key, String name, MatchRoom matchRoom) {
         super();
-        this.setMessage(name + " would like to play with you.");
+        this.setMessage(name + " quiere jugar contigo.");
         this.setMessageType(QUESTION_MESSAGE);
         this.setOptionType(YES_NO_OPTION);
-        String[] options = {"Accept", "Reject"};
+        String[] options = {"Aceptar", "Rechazar"};
         this.setOptions(options);
         this.key = key;
         this.matchRoom = matchRoom;
@@ -42,12 +42,12 @@ public class InviteReceivedPane extends JOptionPane {
      * @param parent the frame to display the dialog in
      */
     public void showOptionPane(Component parent) {
-        dialog = this.createDialog(parent, "Invite");
+        dialog = this.createDialog(parent, "Invitar");
         dialog.setVisible(true);
         dialog.dispose();
-        if (getValue() == "Accept") {
+        if (getValue() == "Aceptar") {
             matchRoom.sendStringArray(new String[]{"join", "accept", key});
-        } else if (getValue() == "Reject") {
+        } else if (getValue() == "Rechazar") {
             matchRoom.sendStringArray(new String[]{"join", "reject", key});
         }
     }

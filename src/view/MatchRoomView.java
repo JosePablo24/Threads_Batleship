@@ -40,7 +40,7 @@ public class MatchRoomView extends JFrame {
         playersList.setModel(playersListModel);
         playersList.addMouseListener(new PlayersListMouseAdapter());
         playersList.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-        sendInvite = new JButton("Send invite");
+        sendInvite = new JButton("Enviar invitacion");
         sendInvite.setEnabled(false);
         sendInvite.addActionListener(new ActionListener() {
             @Override
@@ -58,7 +58,7 @@ public class MatchRoomView extends JFrame {
             }
         });
 
-        playersNumber = new JLabel("Players in room: " + playersListModel.getSize());
+        playersNumber = new JLabel("Jugadores disponibles: " + playersListModel.getSize());
         playersNumber.setHorizontalAlignment(JLabel.CENTER);
 
         mainPanel.add(playersNumber, BorderLayout.NORTH);
@@ -93,10 +93,10 @@ public class MatchRoomView extends JFrame {
     }
 
     private void askForName() {
-        String message = "Please choose a nickname.";
+        String message = "Introduzca un sobrenombre.";
         while (true) {
             String name = (String) JOptionPane.showInputDialog(this, message,
-                "Nickname", JOptionPane.PLAIN_MESSAGE, null, null, "");
+                "Sobrenombre", JOptionPane.PLAIN_MESSAGE, null, null, "");
             if (name == null) {
                 System.exit(-1);
             }
@@ -115,9 +115,9 @@ public class MatchRoomView extends JFrame {
                 matchRoom.setOwnName(name);
                 break;
             } else if (state == MatchRoom.NameState.INVALID) {
-                message = "You must choose a valid nickname.";
+                message = "No es valido ese sobrenombre.";
             } else if (state == MatchRoom.NameState.TAKEN) {
-                message = "This nickname already exists, please try again.";
+                message = "Este sobrenombre no es valido, por favor introduzca otro.";
             }
         }
     }
@@ -147,7 +147,7 @@ public class MatchRoomView extends JFrame {
         if (playersList.isSelectionEmpty()) {
             sendInvite.setEnabled(false);
         }
-        playersNumber.setText("Players in room: " + playersListModel.getSize());
+        playersNumber.setText("Jugadores Disponibles: " + playersListModel.getSize());
     }
 
     public static void main(String[] args) {

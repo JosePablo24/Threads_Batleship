@@ -21,8 +21,8 @@ import java.io.ObjectOutputStream;
 public class ClientView extends JFrame {
 
     private JTextField inputField = new JTextField();
-    private JButton rotateButton = new JButton("Rotate");
-    private JButton saveShipState = new JButton("Ready");
+    private JButton rotateButton = new JButton("Rotar");
+    private JButton saveShipState = new JButton("¡Listo!");
     private JScrollPane chatScrollPane;
     private JList<String> chat = new JList<>();
     private DefaultListModel<String> chatModel = new DefaultListModel<>();
@@ -106,7 +106,7 @@ public class ClientView extends JFrame {
         message.setHorizontalAlignment(JLabel.CENTER);
         message.setVerticalAlignment(JLabel.CENTER);
         message.setFont(new Font("SansSerif", Font.PLAIN, 14));
-        timerView = new JLabel(Integer.toString(Game.PLACEMENT_TIMEOUT / 1000));
+        timerView = new JLabel(Integer.toString(Game.PLACEMENT_TIMEOUT / 5000));
         timerView.setHorizontalAlignment(JLabel.CENTER);
         timerView.setVerticalAlignment(JLabel.CENTER);
         timerView.setFont(new Font("SansSerif", Font.BOLD, 16));
@@ -204,9 +204,9 @@ public class ClientView extends JFrame {
     }
 
     public void gameOverAction(String result) {
-        Object[] options = {"Back to lobby", "Quit"};
+        Object[] options = {"Regresar a la sala", "Salir"};
         int n = JOptionPane.showOptionDialog(this,
-                result + " What would you like to do now?", "Game Over ",
+                result + " Que deseas hacer ahora?", "Fin del juego  ",
                 JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE, null,
                 options, options[0]);
         switch (n) {

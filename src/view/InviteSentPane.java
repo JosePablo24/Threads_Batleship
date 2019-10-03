@@ -24,9 +24,9 @@ public class InviteSentPane extends JOptionPane {
      */
     public InviteSentPane(String name, MatchRoom matchRoom) {
         super();
-        this.setMessage("Waiting for " + name + " to respond.");
+        this.setMessage("Esperando a  " + name + " para Jugar.");
         this.setMessageType(CANCEL_OPTION);
-        String[] options = {"Cancel"};
+        String[] options = {"Cancelar"};
         this.setOptions(options);
         this.matchRoom = matchRoom;
     }
@@ -39,11 +39,11 @@ public class InviteSentPane extends JOptionPane {
      * @param parent the frame to display the dialog in
      */
     public void showPane(Component parent) {
-        dialog = this.createDialog(parent, "Invite Sent");
+        dialog = this.createDialog(parent, "Invitacion enviada");
         dialog.setVisible(true);
         dialog.dispose();
         if (getValue() == "Cancel") {
-            matchRoom.sendStringArray(new String[]{"join", "cancel"});
+            matchRoom.sendStringArray(new String[]{"unirse", "cancelar"});
         }
     }
 
