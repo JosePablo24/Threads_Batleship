@@ -204,7 +204,7 @@ public class MatchRoom extends Thread {
                 case NotificationMessage.NEW_JOIN_GAME_REQUEST:
                     final InviteReceivedPane dialog = new InviteReceivedPane(
                             n.getText()[0], n.getText()[1], this);
-                    System.out.println("request from " + n.getText()[0] + " " + n.getText()[1]);
+                    System.out.println("Peticion de  " + n.getText()[0] + " " + n.getText()[1]);
                     inviteDialogs.put(n.getText()[0], dialog);
                     EventQueue.invokeLater(new Runnable() {
                         @Override
@@ -214,21 +214,21 @@ public class MatchRoom extends Thread {
                     });
                     break;
                 case NotificationMessage.JOIN_GAME_REQUEST_REJECTED:
-                    System.out.println("Join request rejected");
+                    System.out.println("union de juego rechazada");
                     if (inviteSentPane != null) {
                         inviteSentPane.dispose();
                     }
                     break;
                 case NotificationMessage.JOIN_GAME_REQUEST_ACCEPTED:
-                    System.out.println("Join request accepted");
+                    System.out.println("Union de juego aceptada");
                     break;
                 case NotificationMessage.JOIN_GAME_REQUEST_CANCELLED:
-                    System.out.println("cancelled");
+                    System.out.println("Cancelada");
                     InviteReceivedPane pane = inviteDialogs.get(n.getText()[0]);
                     if (pane != null) {
                         pane.dispose();
                     } else {
-                        System.out.println("can't find " + n.getText()[0]);
+                        System.out.println("No se encontro el " + n.getText()[0]);
                     }
             }
         }

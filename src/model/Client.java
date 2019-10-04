@@ -97,7 +97,7 @@ public class Client extends Thread {
                 }
                 break;
             case NotificationMessage.BOARD_ACCEPTED:
-                view.setMessage("Board accepted. Waiting for opponent.");
+                view.setMessage("Tablero Aceptado. Esperando oponente.");
                 view.stopTimer();
                 ownBoard.setBoatPositionLocked(true);
                 break;
@@ -107,7 +107,7 @@ public class Client extends Thread {
                 break;
             case NotificationMessage.GAME_NOT_FOUND:
                 // TODO: handle joining a game that doesn't exist
-                view.addChatMessage("Game not found.");
+                view.addChatMessage("Juego no encontrado.");
                 break;
             case NotificationMessage.PLACE_SHIPS:
                 // TODO: allow player to start positioning ships
@@ -117,13 +117,13 @@ public class Client extends Thread {
             case NotificationMessage.YOUR_TURN:
                 view.stopTimer();
                 view.setTimer(Game.TURN_TIMEOUT / 1000);
-                view.setMessage("Your turn.");
+                view.setMessage("Es tu turno.");
                 break;
             case NotificationMessage.OPPONENTS_TURN:
                 view.stopTimer();
                 view.setTimer(Game.TURN_TIMEOUT / 1000);
-                view.addChatMessage("Opponent's turn.");
-                view.setMessage("Opponent's turn.");
+                view.addChatMessage("Es turno del oponente.");
+                view.setMessage("Es turno del oponente.");
                 break;
             case NotificationMessage.GAME_WIN:
                 // TODO: inform player they have won the game
@@ -149,26 +149,26 @@ public class Client extends Thread {
                 break;
             case NotificationMessage.TIMEOUT_DRAW:
                 // TODO: inform that both took too long to place ships
-                view.addChatMessage("Game ended a draw.");
-                view.gameOverAction("Game ended a draw.");
+                view.addChatMessage("El juego termino en un empate.");
+                view.gameOverAction("El juego termino en un empate.");
                 break;
             case NotificationMessage.NOT_YOUR_TURN:
                 view.addChatMessage("No es tu turno!");
                 break;
             case NotificationMessage.INVALID_BOARD:
-                view.addChatMessage("Invalid board.");
+                view.addChatMessage("Tablero invalido.");
                 break;
             case NotificationMessage.NOT_IN_GAME:
-                view.addChatMessage("You're not in a game.");
+                view.addChatMessage("No estas en el juego.");
                 break;
             case NotificationMessage.INVALID_MOVE:
-                view.addChatMessage("Invalid move.");
+                view.addChatMessage("Movimiento invalido.");
                 break;
             case NotificationMessage.REPEATED_MOVE:
-                view.addChatMessage("You cannot repeat a move.");
+                view.addChatMessage("No se puede repetir movimiento.");
                 break;
             case NotificationMessage.OPPONENT_DISCONNECTED:
-                view.addChatMessage("Opponent disconnected.");
+                view.addChatMessage("Oponente desconectado.");
             }
         } else if (input instanceof MoveResponseMessage) {
             MoveResponseMessage move = (MoveResponseMessage) input;
